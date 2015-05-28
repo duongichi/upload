@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+
   # Example resource route with options:
   #   resources :products do
   #     member do
@@ -53,4 +54,14 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+end
+
+
+
+CSVImportExample::Application.routes.draw do
+  resources :users do
+    collection { post :import }
+  end
+
+  root to: "users#index"
 end

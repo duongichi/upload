@@ -1,0 +1,42 @@
+<%= flash[:notice] %>
+<table>
+  <thead>
+    <tr>
+      <th>user_identifer</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>smoker</th>
+      <th>transport</th>
+      <th>marital_status</th>
+      <th>birth_year</th>
+      <th>color</th>
+      <th>weight</th>
+      <th>budget</th>
+      <th>height</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.user_identifer %></td>
+        <td><%= user.latitude %></td>
+        <td><%= user.longitude %></td>
+        <td><%= user.smoker %></td>
+        <td><%= user.transport %></td>
+        <td><%= user.marital_status %></td>
+        <td><%= user.birth_year %></td>
+        <td><%= user.color %></td>
+        <td><%= user.weight %></td>
+        <td><%= user.budget %></td>
+        <td><%= user.height %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div>
+<h3>Import a CSV File</h3>
+  <%= form_tag import_products_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+  <% end %>
+</div>
